@@ -1,0 +1,24 @@
+const imagenes = document.querySelectorAll('.img-galeria');
+const imagenesLight = document.querySelector('.agregar-imagen');
+const contenedorLight = document.querySelector('.imagen-light');
+const hamburger1 = document.querySelector('.hamburger');
+
+imagenes.forEach(imagen => imagen.addEventListener('click', () => {
+    imagen.getAttribute('src');
+    mostrarImagen(imagen.getAttribute('src'));
+}))
+
+const mostrarImagen = (imagen) =>{
+    imagenesLight.src = imagen;
+    contenedorLight.classList.toggle('show');
+    imagenesLight.classList.toggle('show-image');
+    hamburger1.style.opacity = '0';
+}
+
+contenedorLight.addEventListener('click', e => {
+    if(e.target != imagenesLight){
+        contenedorLight.classList.toggle('show');
+        imagenesLight.classList.toggle('show-image');
+        hamburger1.style.opacity = '1';
+    }
+})
